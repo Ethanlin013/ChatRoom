@@ -2,23 +2,68 @@ doctype html
 html
 	head
 		link(rel = 'stylesheet', href = 'http://fonts.googleapis.com/css?family=Open+Sans')
-		link(rel='stylesheet', href='/css/style.css') 
+		link(rel='stylesheet', href='/css/style.css')
+		link(rel='stylesheet', href='/css/font-awesome.css')
+		link(rel='stylesheet', href='/css/bootstrap.css') 
 		script(src = '//code.jquery.com/jquery-1.11.0.min.js')
 		script(src = '/socket.io/socket.io.js')
 		script(src = '/js/index.js')
+
 		title FSE Chatroom
 	body
-		h1 FSE Chatroom
-		div 
-			div.inlineBlock
-				span Your name:
-					input(type="text", value="Anonymous")#name
-				br
-				form#messageForm
-					textarea(rows="4", cols="50", placeholder = "Input message here!", maxlength= 200)#outgoingMessage
-					input(type="button", value="Post", disable=true)#send
-			div.inlineBlock.topAligned
-				b Participants
-				br
-				div#participants
-		div#messages
+		div.container
+			h1() FSE Chatroom
+		
+			div.row.pad-top.pad-bottom
+				div.col-lg-9.col-md-9.col-sm-9
+					
+					div.panel.panel-success
+
+						div.panel-heading
+							div.panel-title
+
+								h3 Chat Room History
+
+						div.panel-body
+							.pre-scrollable
+								div#messages
+
+						div.panel-footer
+							br
+							div.inlineBlock
+								form#messageForm
+										input(rows="4", cols="100", class= "form-control" type = "text" placeholder = "Input message here....", maxlength= 200)#outgoingMessage
+										br
+										.input-group-btn
+											input(type="button", class="btn btn-info" value="Post", disable=true, style = "float: right")#send
+
+				div.col-lg-3.col-md-3.col-sm-3
+					
+					
+
+					div.chat-box-online-div
+						
+						div.panel-body.chat-box-online
+							
+							div.chat-box-online-right
+
+								div.panel.panel-success
+									
+									div.panel-heading
+										b Input your name here
+									div.panel-body
+										div.input-group
+										
+											
+												input(type="text", class= "form-control" value="Anonymous")#name
+
+								div.panel.panel-success
+									
+									div.panel-heading
+										b Participants
+									div.panel-body
+
+										div.inlineBlock.topAligned
+											div#participants
+										div.typeMessage
+					

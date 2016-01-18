@@ -4,18 +4,18 @@ function init() {
 
   /* 
    On client init, try to connect to the socket.IO server.
-   Note we don't specify a port since we set up our server
-   to run on port 8080
   */
   var socket = io.connect(serverBaseUrl);
 
-  //We'll save our session ID in a variable for later
+  //save our session ID in a variable for later
   var sessionId = '';
 
   //Helper funciton to list the history chat messages;
   function listHistoryMessage(ctMessages) {
-    for (var i = 0; i < ctMessages.length; i++) {
-      $('#messages').prepend('<b>' + ctMessages[i].name + '&nbsp;&nbsp;&nbsp;&nbsp;' + ctMessages[i].time +'</b><br />' + ctMessages[i].message + '<hr>');
+    for (var i = 0; i < ctMessages.length ; i++ ) {
+      
+      $('#messages').prepend(' <b>' + ctMessages[i].name + '&nbsp;&nbsp;&nbsp;&nbsp;' + ctMessages[i].time +'</b><br />' + ctMessages[i].message + '<hr>');
+      // $('#messages').append('</div> ');
     }
     
   }
@@ -43,9 +43,8 @@ function init() {
   });
   
 /*
- When the server emits the "Add A User" event, we'll reset
- the participants section and display the connected clients. 
- Note we are assigning the sessionId as the span ID.
+ When the server emits the "Load History Message" event, client 
+ will list the History message in the pane;
   */
   socket.on('Load History Messages', function(data) {
     listHistoryMessage(data.ctMessages);
@@ -53,7 +52,7 @@ function init() {
 
 
   /*
- When the server emits the "newConnection" event, we'll reset
+ When the server emits the "Add a User" event, we'll reset
  the participants section and display the connected clients. 
  Note we are assigning the sessionId as the span ID.
   */

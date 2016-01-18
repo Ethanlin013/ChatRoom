@@ -4,14 +4,43 @@ body {
 	font-size: 1em;
 }
 
+h1 {
+	font-size: 50px; 
+	text-align: center;
+	font-family: Verdana;
+	color: #66ff33;  
+}
 textarea {
 	resize: none;
 }
+.typeMessage {
 
+}
+
+.participants{
+
+}
+
+.history{
+	margin: 15px auto;
+	padding: 20px;
+	border:  1px solid #5cbf2a;
+	border-radius: 10px;
+	background-color: #FFFFCC;
+	dispaly: table;
+
+}
+
+.current {
+
+	
+}
 
 .inlineBlock {
 	display: inline-block;
 }
+
+
 
 .topAligned {
 	vertical-align: top;

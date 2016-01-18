@@ -34,7 +34,7 @@ var ctMessages = [];
 
 
 /*
-database 
+initial database 
 */
 
 var fs = require("fs");
@@ -96,7 +96,8 @@ app.use(bodyParser.json());
 //Handle route "GET /", as in "http://localhost:8080/"
 app.get("/", function(request, response) {
 
-  //Render the view called "index"  //default "index.jade"
+  // Render the view called "index"  //default "index.jade"
+  // response.sendfile(__dirname + '/views/index   .html');
   response.render("index");
 
 });
@@ -137,9 +138,8 @@ app.post("/message", function(request, response) {
 io.on("connection", function(socket){
 
   /*
-    When a new user connects to our server, we expect an event called "newUser"
-    and then we'll emit an event called "newConnection" with a list of all 
-    participants to all connected clients
+    When a new user connects to our server,  "newUser" will be trigered
+    and then we'll emit "Add A Server ", "Load History Messages" events to the client
   */
   socket.on("newUser", function(data) {
     participants.push({id: data.id, name: data.name});
@@ -171,5 +171,5 @@ io.on("connection", function(socket){
 
 //Start the http server at port and IP defined before
 http.listen(app.get("port"), app.get("ipaddr"), function() {
-  console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
+  console.log("Server is listening to http://" + app.get("ipaddr") + ":" + app.get("port"));
 });
