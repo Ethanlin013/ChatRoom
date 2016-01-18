@@ -1,0 +1,14 @@
+{	
+  "name": "FSE chatroom",
+  "version": "1.0.0",
+  "descrption": "A simple chatroom for FSE",
+  "author": "Yichen Lin",
+  "dependencies": {
+    "body-parser": "1.4.3",
+    "express": "4.6.1",
+    "jade": "1.4.2",
+    "socket.io": "1.0.6",
+    "sqlite3": "^3.1.1",
+    "underscore": "1.6.0"
+  }
+}
